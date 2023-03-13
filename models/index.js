@@ -1,5 +1,6 @@
-const School = require('./School');
-const Class = require('./Class');
-const Professor = require('./Professor');
+const Listing = require('./Listing');
+const Reservation = require('./Reservation');
+const Transaction = require('./Transaction');
+const Comment = require('./Comment');
 
-module.exports = { School, Class, Professor };
+module.exports = { Listing, Reservation, Transaction, Comment };
