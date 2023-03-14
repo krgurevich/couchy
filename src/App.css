@@ -1,25 +1,24 @@
 @import url("https://fonts.googleapis.com/css2?family=PT+Sans+Narrow&display=swap");
 
-
 body,
 html {
   font-family: "PT Sans Narrow", sans-serif !important;
 }
 
 :root {
-  --blue: #11C0DA;
-  --black: #1C232D;
-  --red: #ED2346;
-  --light: #a4edf8;
+  --teal: #89cac7;
+  --blue: #657498;
+  --light: #e0e3ea;
+  --dark: #14171e;
+  --red: #ed2346;
   --white: #ffffff;
 }
-
 h1 {
+  font-size: 40px;
   font-weight: bold;
-  text-align: center;
-  margin: 30px 0;
+  margin-bottom: 20px;
+  color: var(--dark);
 }
-
 h2 {
   font-size: 20px;
   font-weight: bold;
@@ -33,5 +32,5 @@ h2 {
 }
 
 .font-awesome {
-  color: var(--black);
+  color: var(--blue);
 }
