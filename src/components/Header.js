@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 // Import CSS
-
+import "../styles/Header.css";
 
 // Import Font Awesome Icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -28,8 +28,8 @@ export default function Header({ currentPage, handlePageChange }) {
           )}
         </span>
         <div className="logo-container">
-          <p className="logo">couchy</p>
-          <FontAwesomeIcon className="font-awesome" icon={faCouch} />
+          <p className="logo">couchy&nbsp;</p>
+          <FontAwesomeIcon className="couchy font-awesome" icon={faCouch} />
         </div>
         <ul
           className="main-nav"
@@ -45,6 +45,14 @@ export default function Header({ currentPage, handlePageChange }) {
             Home
           </li>
           <li
+            className={currentPage === "Explore" ? "active" : ""}
+            onClick={() => {
+              handlePageChange("Explore");
+            }}
+          >
+            Explore
+          </li>
+          <li
             className={currentPage === "Portal" ? "active" : ""}
             onClick={() => {
               handlePageChange("Portal");
@@ -53,20 +61,20 @@ export default function Header({ currentPage, handlePageChange }) {
             Portal
           </li>
           <li
-            className={currentPage === "Login" ? "active" : ""}
-            onClick={() => {
-              handlePageChange("Login");
-            }}
-          >
-            Login{" "}
-          </li>
-          <li
             className={currentPage === "Contact" ? "active" : ""}
             onClick={() => {
               handlePageChange("Contact");
             }}
           >
-            Contact Us
+            Contact
+          </li>
+          <li
+            className={currentPage === "Login" ? "active" : ""}
+            onClick={() => {
+              handlePageChange("Login");
+            }}
+          >
+            Login
           </li>
         </ul>
       </nav>
