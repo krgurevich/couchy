@@ -6,7 +6,6 @@ import "../styles/Home.css";
 // Import Profile Image
 import home from "../images/home.png";
 
-
 // Import Profile Image
 import url from "../components/Explore";
 
@@ -15,7 +14,7 @@ const Home = () => {
     <>
       <div className="container-fluid">
         <div class="row">
-          <div class="home-left-container col-sm-6">
+          <div class="home-left-container col-lg-6">
             <p className="home-heading">Still dreaming of your next trip?</p>
             <div class="wrapper">
               <a href={url}>
@@ -23,7 +22,7 @@ const Home = () => {
               </a>
             </div>
           </div>
-          <div class="col-sm-6">
+          <div class="col-lg-6">
             <img className="img-fluid" src={home} alt="home"></img>
           </div>
         </div>
