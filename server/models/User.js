@@ -30,6 +30,10 @@ const userSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: "Listing"
     }],
+    transactions: [{
+        type: Schema.Types.ObjectId,
+        ref: "Transaction"
+    }],
     photo: String
 },
 
