@@ -1,7 +1,7 @@
 const { Schema, model } = require("mongoose");
 
 const userSchema = new Schema({
-    name: {
+    username: {
         type: String,
         required: true,
         unique: true,
@@ -18,10 +18,19 @@ const userSchema = new Schema({
         type: String,
         required: true,
     },
-    posts: [{
+    comments: [{
         type: Schema.Types.ObjectId,
-        ref: "Post"
+        ref: "Comment"
     }],
+    reservations: [{
+        type: Schema.Types.ObjectId,
+        ref: "Reservation"
+    }],
+    listings: [{
+        type: Schema.Types.ObjectId,
+        ref: "Listing"
+    }],
+    photo: String
 },
 
     {
