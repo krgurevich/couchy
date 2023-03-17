@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/couchy/static/css/main.c3782ad3.css",
-    "main.js": "/couchy/static/js/main.46c33ea0.js",
+    "main.css": "/couchy/static/css/main.a1a66cab.css",
+    "main.js": "/couchy/static/js/main.ad233d8f.js",
     "static/media/home.png": "/couchy/static/media/home.13510e57e61edd800445.png",
     "index.html": "/couchy/index.html",
-    "main.c3782ad3.css.map": "/couchy/static/css/main.c3782ad3.css.map",
-    "main.46c33ea0.js.map": "/couchy/static/js/main.46c33ea0.js.map"
+    "main.a1a66cab.css.map": "/couchy/static/css/main.a1a66cab.css.map",
+    "main.ad233d8f.js.map": "/couchy/static/js/main.ad233d8f.js.map"
   },
   "entrypoints": [
-    "static/css/main.c3782ad3.css",
-    "static/js/main.46c33ea0.js"
+    "static/css/main.a1a66cab.css",
+    "static/js/main.ad233d8f.js"
   ]
 }

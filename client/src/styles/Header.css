@@ -51,10 +51,10 @@
 
 .navbar-toggle {
   position: absolute;
-  top: 10px;
+  top: 43px;
   right: 20px;
   cursor: pointer;
-  color: var(--white);
+  color: var(--blue);
   font-size: 24px;
 }
 .active {
@@ -62,7 +62,7 @@
   border-radius: 3px;
   color: var(--black);
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1000px) {
   .navbar {
     display: flex;
     justify-content: space-between;
