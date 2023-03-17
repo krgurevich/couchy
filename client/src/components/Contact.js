@@ -15,8 +15,8 @@ const Contact = () => {
     <div className="contact-form-container">
       <div className="contact-info">
         <h3>Contact Us</h3>
-        <p>Email: example@company.com</p>
-        <p>Phone: (123) 456-7890</p>
+        <p><span className="info">Email:</span> info@couchy.com</p>
+        <p><span className="info">Phone:</span> (555) 555-5555</p>
       </div>
       <form onSubmit={handleSubmit} className="ContactForm">
         <div className="form-group">
