@@ -20,7 +20,7 @@ export default function App() {
 
   const renderPage = () => {
     if (currentPage === "Home") {
-      return <Home />;
+      return <Home currentPage={currentPage} setCurrentPage={setCurrentPage} />;
     }
     if (currentPage === "Explore") {
       return <Explore />;
