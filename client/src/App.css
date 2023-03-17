@@ -20,21 +20,17 @@ h1 {
   color: var(--dark);
 }
 h2 {
-  font-size: 30px;
-  font-weight: bold;
-  text-align: center;
-  margin: 25px 0;
-  padding: 3px;
-  margin: 20px auto;
-}
-h3 {
   font-size: 20px;
   font-weight: bold;
   text-align: center;
   margin: 25px 0;
+  background-color: var(--pink);
   padding: 3px;
+  width: 200px;
   margin: 20px auto;
+  border-radius: 5px;
 }
+
 .font-awesome {
   color: var(--blue);
 }

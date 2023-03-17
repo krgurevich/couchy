@@ -1,27 +1,28 @@
 import React from "react";
 
-
 // Import CSS
 import "../styles/Home.css";
 
 // Import Profile Image
 import home from "../images/home.png";
 
-const Home = ({ setCurrentPage, currentPage }) => {
-  const handleClick = () => {
-    setCurrentPage("Explore");
-  };
+// Import Profile Image
+import url from "../components/Explore";
+
+const Home = () => {
   return (
     <>
       <div className="container-fluid">
-        <div className="row">
-          <div className="home-left-container col-lg-6">
+        <div class="row">
+          <div class="home-left-container col-lg-6">
             <p className="home-heading">Still dreaming of your next trip?</p>
-            <div className="wrapper">
-              <span onClick={handleClick}>Explore with Us!</span>
+            <div class="wrapper">
+              <a href={url}>
+                <span>Explore with us!</span>
+              </a>
             </div>
           </div>
-          <div className="col-lg-6">
+          <div class="col-lg-6">
             <img className="img-fluid" src={home} alt="home"></img>
           </div>
         </div>
