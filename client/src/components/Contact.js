@@ -1,16 +1,3 @@
-// import React from 'react'
-
-// // Import CSS
-
-
-// const Contact = () => {
-//   return (
-//     <div>Contact</div>
-//   )
-// }
-
-// export default Contact
-
 import React, { useState } from "react";
 import "../styles/Contact.css";
 
