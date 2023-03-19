@@ -1,0 +1,87 @@
+.contact-form-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 50px;
+  padding: 50px;
+  background-color: var(--light);
+}
+
+.contact-info {
+  flex: 1;
+  width: 100%;
+}
+
+.contact-info h3 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.contact-info p {
+  font-size: 16px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.ContactForm {
+  flex: 2;
+  width: 100%;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.ContactUsLabel {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 5px;
+  color: var(--blue);
+  font-weight: bold;
+}
+
+.form-group label {
+  font-size: 16px;
+  color: var(--blue);
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.info {
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--blue);
+}
+.ContactUsInput {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 2px solid #ccc;
+}
+
+.ContactUsInput:focus {
+  outline: none;
+  border-color: #333;
+}
+
+.SendMsgBtn {
+  display: block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: var(--blue);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.SendMsgBtn:hover {
+  background-color: var(--teal);
+}
+
+@media only screen and (max-width: 600px) {
+  .contact-form-container {
+    flex-direction: column;
+  }
+}
