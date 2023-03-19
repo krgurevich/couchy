@@ -1,0 +1,20 @@
+[
+    {
+        "title": "Joe's Couch",
+        "description": "A couch is available in my living room, food and amenities provided",
+        "price": 4,
+        "location": "Nowhere, VA"
+    },
+    {
+        "title": "Spare Attic Room",
+        "description": "Got some space available in my attic. It's not the coziest, but you'll have wifi access!",
+        "price": 6,
+        "location": "Boston, MA"
+    },
+    {
+        "title": "The Boat House (tm)",
+        "description": "If you want a night you'll never forget, make your reservation at the Boat House",
+        "price": 30,
+        "location": "Long Beach Island, NJ"
+    }
+]

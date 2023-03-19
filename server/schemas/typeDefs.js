@@ -5,7 +5,8 @@ const typeDefs = gql`
     id: ID!
     name: String!
     email: String!
-    posts: [Post!]
+    listings: [Listing]
+    comments:[Comment]
   }
 
   type Listing {

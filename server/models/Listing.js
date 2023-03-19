@@ -2,7 +2,7 @@ const { Schema, model } = require('mongoose');
 
 const mongoose = require('mongoose');
 
-const listingsSchema = new Schema({
+const listingSchema = new Schema({
   title: {
     type: String,
     required: true
