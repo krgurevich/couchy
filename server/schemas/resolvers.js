@@ -1,15 +1,24 @@
 const { AuthenticationError } = require("apollo-server-express");
 const {
-  Comment,
+  // Comment,
   Listing,
-  Reservation,
-  Transaction,
+  // Reservation,
+  // Transaction,
   User,
 } = require("../models");
 const { signToken } = require("../utils/auth");
 
 const resolvers = {
   Query: {
+
+    // Querying me
+    me: async (parent, args, context) => {
+      if (context.user) {
+        const userData = await User.findOne({ _id: context.user._id });
+        return userData;
+      }
+    },
+
     // Query to get all users
     getUsers: async () => {
       try {
@@ -55,36 +64,36 @@ const resolvers = {
         throw new Error(error);
       }
     },
+    // FOR FUTURE DEVELOPMENT 🚀
+    //   // Query to get all reservations
+    //   getReservations: async () => {
+    //     try {
+    //       const reservations = await Reservation.find({});
+    //       return reservations;
+    //     } catch (error) {
+    //       throw new Error(error);
+    //     }
+    //   },
 
-    // Query to get all reservations
-    getReservations: async () => {
-      try {
-        const reservations = await Reservation.find({});
-        return reservations;
-      } catch (error) {
-        throw new Error(error);
-      }
-    },
+    //   // Query to get all transactions
+    //   getTransactions: async () => {
+    //     try {
+    //       const transactions = await Transaction.find({});
+    //       return transactions;
+    //     } catch (error) {
+    //       throw new Error(error);
+    //     }
+    //   },
 
-    // Query to get all transactions
-    getTransactions: async () => {
-      try {
-        const transactions = await Transaction.find({});
-        return transactions;
-      } catch (error) {
-        throw new Error(error);
-      }
-    },
-
-    // Query to get all comments
-    getComments: async () => {
-      try {
-        const comments = await Comment.find({});
-        return comments;
-      } catch (error) {
-        throw new Error(error);
-      }
-    },
+    //   // Query to get all comments
+    //   getComments: async () => {
+    //     try {
+    //       const comments = await Comment.find({});
+    //       return comments;
+    //     } catch (error) {
+    //       throw new Error(error);
+    //     }
+    //   },
   },
 
   Mutation: {

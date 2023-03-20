@@ -18,22 +18,25 @@ const userSchema = new Schema({
         type: String,
         required: true,
     },
-    comments: [{
-        type: Schema.Types.ObjectId,
-        ref: "Comment"
-    }],
-    reservations: [{
-        type: Schema.Types.ObjectId,
-        ref: "Reservation"
-    }],
     listings: [{
         type: Schema.Types.ObjectId,
         ref: "Listing"
     }],
-    transactions: [{
-        type: Schema.Types.ObjectId,
-        ref: "Transaction"
-    }],
+
+    // FOR FUTURE DEVELOPMENT 🚀
+    // comments: [{
+    //     type: Schema.Types.ObjectId,
+    //     ref: "Comment"
+    // }],
+    // reservations: [{
+    //     type: Schema.Types.ObjectId,
+    //     ref: "Reservation"
+    // }],
+
+    // transactions: [{
+    //     type: Schema.Types.ObjectId,
+    //     ref: "Transaction"
+    // }],
     photo: String
 },
 

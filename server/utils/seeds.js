@@ -3,7 +3,7 @@ const { User, Listing, Comment } = require('../models');
 
 const userSeed = require('./userSeeds.json');
 let listingSeed = require('./listingSeeds.json');
-const commentSeed = require('./commentSeeds.json');
+
 
 
 
