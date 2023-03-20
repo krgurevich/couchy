@@ -9,8 +9,9 @@ password
 }
 }
 `;
-export const UPDATE_USER = gql`mutation updateUser($id:ID!, $input:userInput) {
-updateUser(userInput:$input){
+export const UPDATE_USER = gql`
+mutation updateUser($id:ID!, $input:userInput) {
+updateUser(input:$input){
 name
 email
 password
