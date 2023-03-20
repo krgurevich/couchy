@@ -1,4 +1,4 @@
-import { gql } from '@apollo-client';
+import { gql } from '@apollo/client';
 // user crud
 export const CREATE_USER = gql`
 mutation createUser($input:userInput!) {
@@ -18,13 +18,13 @@ password
 }
 `;
 
-export const DELETE_USER = gql`deleteUser($id:ID!){
+// export const DELETE_USER = gql`deleteUser($id:ID!){
 
-deleteUser(id:$id){id 
-name 
-email
-posts}
-} `;
+// deleteUser(id:$id){id 
+// name 
+// email
+// posts}
+// } `;
 
 // listing crud
 export const CREATE_LISTING = gql`mutation createListing($input: ListingInput){

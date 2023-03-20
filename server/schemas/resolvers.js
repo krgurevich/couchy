@@ -1,15 +1,22 @@
-const { AuthenticationError } = require('apollo-server-express');
-const { Comment, Listing, Reservation, Transaction, User } = require('../models');
-const { signToken } = require('../utils/auth');
-
-const { User, Listing, Reservation, Transaction, Comment } = require('./models');
+const { AuthenticationError } = require("apollo-server-express");
+const {
+  Comment,
+  Listing,
+  Reservation,
+  Transaction,
+  User,
+} = require("../models");
+const { signToken } = require("../utils/auth");
 
 const resolvers = {
   Query: {
     // Query to get all users
     getUsers: async () => {
       try {
-        const users = await User.find({}).populate({ path: 'listing', select: '-__v' });
+        const users = await User.find({}).populate({
+          path: "listing",
+          select: "-__v",
+        });
         return users;
       } catch (error) {
         throw new Error(error);
@@ -19,7 +26,10 @@ const resolvers = {
     // Query to get a single user by ID
     getUserById: async (_, { id }) => {
       try {
-        const user = await User.findById(id).populate({ path: 'listing', select: '-__v' });
+        const user = await User.findById(id).populate({
+          path: "listing",
+          select: "-__v",
+        });
         return user;
       } catch (error) {
         throw new Error(error);
@@ -91,7 +101,11 @@ const resolvers = {
     // Mutation to update a user by ID
     updateUser: async (_, { id, name, email, password }) => {
       try {
-        const updatedUser = await User.findByIdAndUpdate(id, { name, email, password }, { new: true });
+        const updatedUser = await User.findByIdAndUpdate(
+          id,
+          { name, email, password },
+          { new: true }
+        );
         return updatedUser;
       } catch (error) {
         throw new Error(error);
@@ -121,7 +135,11 @@ const resolvers = {
     // Mutation to update a listing by ID
     updateListing: async (_, { id, title, description, price }) => {
       try {
-        const updatedListing = await Listing.findByIdAndUpdate(id, { title, description, price }, { new: true });
+        const updatedListing = await Listing.findByIdAndUpdate(
+          id,
+          { title, description, price },
+          { new: true }
+        );
         return updatedListing;
       } catch (error) {
         throw new Error(error);
@@ -131,11 +149,17 @@ const resolvers = {
     // Mutation to delete a listing by ID
     deleteListing: async (_, { id, title, description, price }) => {
       try {
-        const deletedListing = await Listing.findByIdAndDelete(id, { title, description, price }, { new: true });
+        const deletedListing = await Listing.findByIdAndDelete(
+          id,
+          { title, description, price },
+          { new: true }
+        );
         return deletedListing;
       } catch (error) {
         throw new Error(error);
       }
     },
-  }
+  },
 };
+
+module.exports = resolvers;

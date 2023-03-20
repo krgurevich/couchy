@@ -64,7 +64,20 @@ listings{
 }
 }`;
 
-
+export const GET_LISTING_USER = gql`
+query getListingByUserId($id:ID!){
+    listing{
+        _id
+        title
+        description
+        price
+        location 
+        host
+        reservations
+        commments
+    }
+}
+`;
 export const GET_COMMENTS = gql`
 query getComments{
 comments{
