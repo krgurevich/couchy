@@ -1,43 +1,41 @@
-const { Schema, model } = require('mongoose');
+const { Schema, model } = require("mongoose");
 
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const listingSchema = new Schema({
   title: {
     type: String,
-    required: true
+    required: true,
   },
   description: {
     type: String,
-    required: true
+    required: true,
   },
   price: {
     type: Number,
-    required: true
+    required: true,
   },
-  address: {
-    street: String,
-    city: String,
-    state: String,
-    zip: String
+  location: {
+    type: String,
+    required: true,
   },
   amenities: [String],
   photos: [String],
   host: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
-    required: true
+    ref: "User",
+    required: true,
   },
   createdAt: {
     type: Date,
-    default: Date.now
+    default: Date.now,
   },
   updatedAt: {
     type: Date,
-    default: Date.now
-  }
+    default: Date.now,
+  },
 });
 
-const Listing = model('Listing', listingSchema);
+const Listing = model("Listing", listingSchema);
 
 module.exports = Listing;
