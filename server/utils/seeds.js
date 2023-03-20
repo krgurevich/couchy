@@ -2,7 +2,7 @@ const db = require('../config/connection');
 const { User, Listing, Comment } = require('../models');
 
 const userSeed = require('./userSeeds.json');
-const listingSeed = require('./listingSeeds.json');
+let listingSeed = require('./listingSeeds.json');
 const commentSeed = require('./commentSeeds.json');
 
 
@@ -16,7 +16,16 @@ db.once('open', async () => {
 
         // bulk creation of models
         const users = await User.insertMany(userSeed);
+        console.log(users)
+
+        console.log(listingSeed)
+        listingSeed = listingSeed.map(listing => {
+            listing.host = users[0]._id
+            return listing
+        })
+        console.log(listingSeed)
         const listings = await Listing.insertMany(listingSeed);
+        console.log(listings)
         const comments = await Comment.insertMany(commentSeed);
 
         for (newListing of listings) {
