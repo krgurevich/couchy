@@ -67,7 +67,7 @@ export default function Header() {
               </li>
             </Link>
           )}
-          {isAuthenticated && <li onClick={() => auth.logout()}>Log out</li>}
+          {isAuthenticated && <li onClick={() => auth.logout()}>Logout</li>}
         </ul>
       </nav>
     </>
