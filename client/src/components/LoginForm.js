@@ -3,6 +3,7 @@ import { useMutation } from '@apollo/client';
 import { Form, Button, Alert } from 'react-bootstrap';
 import { LOGIN_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
+import { Link } from "react-router-dom";
 
 const LoginForm = () => {
   // set initial form state
@@ -51,7 +52,7 @@ const LoginForm = () => {
   };
 
   return (
-    <>
+    <div id="LoginForm">
       <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
         <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
           Something went wrong with your login credentials!
@@ -87,8 +88,10 @@ const LoginForm = () => {
           variant='success'>
           Submit
         </Button>
+        <p>Don't have an account? Sign up here 👇 </p>
+        <Link to="/SignupForm"> Signup </Link>
       </Form>
-    </>
+    </div>
   );
 };
 

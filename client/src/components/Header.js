@@ -52,14 +52,14 @@ export default function Header({ currentPage, handlePageChange }) {
           >
             Explore
           </li>
-          <li
+          {/* <li
             className={currentPage === "Portal" ? "active" : ""}
             onClick={() => {
               handlePageChange("Portal");
             }}
           >
             Portal
-          </li>
+          </li> */}
           <li
             className={currentPage === "Contact" ? "active" : ""}
             onClick={() => {
@@ -76,14 +76,14 @@ export default function Header({ currentPage, handlePageChange }) {
           >
             Login
           </li>
-          <li
+          {/* <li
             className={currentPage === "Signup" ? "active" : ""}
             onClick={() => {
               handlePageChange("SignupForm");
             }}
           >
             Signup
-          </li>
+          </li> */}
         </ul>
       </nav>
     </>

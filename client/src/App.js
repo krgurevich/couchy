@@ -43,6 +43,17 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
+// return (
+//   <Router>
+//     <div>
+//       <LoginForm />
+//       <Switch>
+//         <Route exact path="/SignupForm" component={SignupForm} />
+//       </Switch>
+//     </div>
+//   </Router>
+// );
+
 // Current Page Set State
 export default function App() {
   const [currentPage, setCurrentPage] = useState("Home");

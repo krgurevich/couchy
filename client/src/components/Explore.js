@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useQuery } from "@apollo/client";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 // Import Listing component
 import Listing from "./Listing";
@@ -29,11 +29,11 @@ const Explore = () => {
             {listings?.map((item) => (
               <Listing key={item._id} {...item} />
             ))}
-            <Link to="/Contact">
-              <button type="button" className="btn btn-danger">
-                Contact Host
-              </button>
-            </Link>
+
+            <button type="button" className="btn btn-danger">
+              Contact Host
+            </button>
+
           </div>
         </div>
       </div>
