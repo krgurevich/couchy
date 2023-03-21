@@ -23,17 +23,12 @@ const Explore = () => {
       <h2>
         Explore Listings <FontAwesomeIcon icon={faHome} />
       </h2>
-      <div className="container-fluid">
+      <div className="container">
         <div className="row">
-          <div className="col-6">
+          <div className="card col">
             {listings?.map((item) => (
               <Listing key={item._id} {...item} />
             ))}
-
-            <button type="button" className="btn btn-danger">
-              Contact Host
-            </button>
-
           </div>
         </div>
       </div>

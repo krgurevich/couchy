@@ -3,19 +3,19 @@ const { Schema, model } = require("mongoose");
 const userSchema = new Schema({
     username: {
         type: String,
-        required: true,
+        // required: true,
         unique: true,
         trim: true,
     },
     email: {
         type: String,
-        required: true,
+        // required: true,
         match: [/.+\@.+..+/],
         unique: true,
     },
     password: {
         type: String,
-        required: true,
+        // required: true,
     },
     listings: [{
         type: Schema.Types.ObjectId,

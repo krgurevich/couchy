@@ -63,7 +63,7 @@ const Portal = () => {
             </div>
           </div></>
       ) : (
-        <p>
+        <p className="portal-p">
           You need to be logged in to access this page.
           <a href="#LoginForm">Login</a> or <a href="#SignupForm">Signup.</a>
         </p>

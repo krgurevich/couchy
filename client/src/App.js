@@ -22,6 +22,7 @@ import Portal from "./components/Portal";
 import LoginForm from "./components/LoginForm";
 import Contact from "./components/Contact";
 import SignupForm from "./components/SignupForm";
+import UserContextProvider from "./context/UserContext";
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -54,16 +55,18 @@ export default function App() {
     <>
       <ApolloProvider client={client}>
         <Router>
-          <Header />
-          <Routes>
-            <Route exact element={<Home />} path="/" />
-            <Route element={<Explore />} path="/explore" />
-            <Route element={<Contact />} path="/contact" />
-            <Route element={<LoginForm />} path="/login" />
-            <Route element={<Portal />} path="/portal" />
-            <Route element={<SignupForm />} path="/signup" />
-          </Routes>
-          <Footer />
+          <UserContextProvider>
+            <Header />
+            <Routes>
+              <Route exact element={<Home />} path="/" />
+              <Route element={<Explore />} path="/explore" />
+              <Route element={<Contact />} path="/contact" />
+              <Route element={<LoginForm />} path="/login" />
+              <Route element={<Portal />} path="/portal" />
+              <Route element={<SignupForm />} path="/signup" />
+            </Routes>
+            <Footer />
+          </UserContextProvider>
         </Router>
       </ApolloProvider>
     </>

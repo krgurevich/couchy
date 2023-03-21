@@ -9,10 +9,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/fontawesome-free-solid";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { faCouch } from "@fortawesome/fontawesome-free-solid";
+import { useUserContext } from "../context/UserContext";
+import auth from "../utils/auth";
 
 // Set State for Current Page and Handle Page Change
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const { isAuthenticated, user } = useUserContext();
   const location = useLocation();
   const currentPage = location.pathname;
   return (
@@ -39,22 +42,32 @@ export default function Header() {
           id="js-menu"
           style={{ display: isOpen && "block" }}
         >
-          <Link to="/">
+          <Link className="links" to="/">
             <li className={currentPage === "/" ? "active" : ""}>Home</li>
           </Link>
-          <Link to="/explore">
+          <Link className="links" to="/explore">
             <li className={currentPage === "explore" ? "active" : ""}>
               Explore
             </li>
           </Link>
-          <Link to="/contact">
+          <Link className="links" to="/contact">
             <li className={currentPage === "contact" ? "active" : ""}>
               Contact
             </li>
           </Link>
-          <Link to="/login">
-            <li className={currentPage === "login" ? "active" : ""}>Login</li>
-          </Link>
+          {!isAuthenticated && (
+            <Link className="links" to="/login">
+              <li className={currentPage === "login" ? "active" : ""}>Login</li>
+            </Link>
+          )}
+          {isAuthenticated && (
+            <Link className="links" to="/portal">
+              <li className={currentPage === "portal" ? "active" : ""}>
+                {user.username}
+              </li>
+            </Link>
+          )}
+          {isAuthenticated && <li onClick={() => auth.logout()}>Log out</li>}
         </ul>
       </nav>
     </>
