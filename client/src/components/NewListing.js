@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useMutation } from "@apollo/react-hooks";
+import { useMutation } from "@apollo/client";
 import { CREATE_LISTING } from "../utils/mutations";
 
 // Import CSS
@@ -23,7 +23,7 @@ const NewListing = () => {
   return (
     <>
       <hr></hr>
-        <div className="container">
+      <div className="container">
         <h4>Create New Listing</h4>
         <form onSubmit={handleSubmit}>
           <input

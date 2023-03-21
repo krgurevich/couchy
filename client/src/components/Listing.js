@@ -4,7 +4,7 @@ import React from "react";
 // import { CREATE_LISTING } from "../utils/mutations";
 // import { GET_SINGLE_LISTING, GET_ME } from "../utils/queries";
 
-// import Auth from '../../utils/auth';
+// import Auth from '../utils/auth';
 
 
 // Import Font Awesome Icons
@@ -16,16 +16,16 @@ const Listing = ({
   title,
   description,
   price,
-  address,
-  amenities,
+  location,
   photos,
   host,
   createdAt,
   updatedAt,
 }) => {
+  console.log(title);
   return (
     <div className="card">
-     
+
       <img className="card-img-top img-fluid" src={photos} alt="Property" />
       <div className="card-body">
         <h5 className="card-title">{title}</h5>
@@ -33,17 +33,16 @@ const Listing = ({
       </div>
       <ul className="list-group list-group-flush">
         <li className="list-group-item">
-          <FontAwesomeIcon className="font-awesome" icon={faHome} /> {address}
+          <FontAwesomeIcon className="font-awesome" icon={faHome} /> {location}
         </li>
         <li className="list-group-item">Listing ID: {_id}</li>
         <li className="list-group-item">Price: {price}</li>
-        <li className="list-group-item">Amenities: {amenities}</li>
-        <li className="list-group-item">Host Name: {host}</li>
+        <li className="list-group-item">Host Name: {host.username}</li>
         <li className="list-group-item">Listing Created: {createdAt}</li>
         <li className="list-group-item">Listing Updated: {updatedAt}</li>
       </ul>
     </div>
-   );
+  );
 };
 
 export default Listing;

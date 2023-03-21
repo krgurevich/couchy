@@ -26,7 +26,7 @@ query getUserById($id:ID!){
 export const GET_USERS = gql`
 query allUsers{
     users{
-        id
+        _id
         name 
         email
         posts
@@ -36,7 +36,7 @@ query allUsers{
 
 export const GET_SINGLE_LISTING = gql`
 query getListingById($id:ID!){
-    listing{
+    listing(id:$id){
         _id
         title
         description
@@ -52,15 +52,17 @@ query getListingById($id:ID!){
 
 export const GET_LISTINGS = gql`
 query getListings{
-listings{
+getListings{
     _id
         title
         description
         price
         location 
-        host
-        reservations
-        commments
+        host    {
+        username
+        }
+        createdAt
+        updatedAt
 }
 }`;
 
@@ -78,16 +80,16 @@ query getListingByUserId($id:ID!){
     }
 }
 `;
-export const GET_COMMENTS = gql`
-query getComments{
-comments{
-_id
-listing
-user
-text
-}
-}
-`;
+// export const GET_COMMENTS = gql`
+// query getComments{
+// comments{
+// _id
+// listing
+// user
+// text
+// }
+// }
+// `;
 
 // export const GET_SINGLE_RESERVATION = gql``;
 

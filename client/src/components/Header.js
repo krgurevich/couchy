@@ -71,10 +71,18 @@ export default function Header({ currentPage, handlePageChange }) {
           <li
             className={currentPage === "Login" ? "active" : ""}
             onClick={() => {
-              handlePageChange("Login");
+              handlePageChange("LoginForm");
             }}
           >
             Login
+          </li>
+          <li
+            className={currentPage === "Signup" ? "active" : ""}
+            onClick={() => {
+              handlePageChange("SignupForm");
+            }}
+          >
+            Signup
           </li>
         </ul>
       </nav>

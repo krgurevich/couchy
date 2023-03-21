@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { useQuery } from "@apollo/react-hooks";
+import { useQuery } from "@apollo/client";
+import { Link } from "react-router-dom";
 
 // Import Listing component
 import Listing from "./Listing";
@@ -15,7 +16,8 @@ import { GET_LISTINGS } from "../utils/queries";
 
 const Explore = () => {
   const { loading, error, data } = useQuery(GET_LISTINGS);
-  console.log(data);
+  const listings = data?.getListings || [];
+  console.log(listings);
   return (
     <>
       <h2>
@@ -24,12 +26,14 @@ const Explore = () => {
       <div className="container-fluid">
         <div className="row">
           <div className="col-6">
-            {data?.map((item) => (
+            {listings?.map((item) => (
               <Listing key={item._id} {...item} />
             ))}
-            <button type="button" className="btn btn-danger">
-              Contact Host
-            </button>
+            <Link to="/Contact">
+              <button type="button" className="btn btn-danger">
+                Contact Host
+              </button>
+            </Link>
           </div>
         </div>
       </div>

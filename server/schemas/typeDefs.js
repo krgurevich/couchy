@@ -2,11 +2,15 @@ const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
   type User {
-    id: ID!
-    name: String!
+    _id: ID!
+    username: String!
     email: String!
     listings: [Listing]
-    comments:[Comment]
+  }
+
+  type Auth {
+  token: ID!
+  user: User
   }
 
   type Listing {
@@ -15,44 +19,16 @@ const typeDefs = gql`
     description: String!
     price: Float!
     location: String!
-    host: User!
-    reservations: [Reservation!]
-    comments: [Comment!]
+    host: User
+    createdAt: String
+    updatedAt: String
   }
-
-  type Reservation {
-    _id: ID!
-    listing: Listing!
-    guest: User!
-    checkIn: String!
-    checkOut: String!
-  }
-
-  type Comment {
-    _id: ID!
-    listing: Listing!
-    user: User!
-    text: String!
-  }
-
-  type Transaction {
-    _id: ID!
-    reservation: Reservation!
-    totalPrice: Float!
-    paid: Boolean!
-  }
-
   type Query {
+  me: User
     getUsers: [User!]
-    user(id: ID!): User
-    listings: [Listing!]
-    listing(id: ID!): Listing
-    reservations: [Reservation!]
-    reservation(id: ID!): Reservation
-    comments: [Comment!]
-    comment(id: ID!): Comment
-    transactions: [Transaction!]
-    transaction(id: ID!): Transaction
+    getUserById(id: ID!): User
+    getListings: [Listing!]
+    getListingById(id: ID!): Listing
   }
 
   input UserInput {
@@ -69,41 +45,14 @@ const typeDefs = gql`
     host: ID!
   }
 
-  input ReservationInput {
-    listing: ID!
-    guest: ID!
-    checkIn: String!
-    checkOut: String!
-  }
-
-  input CommentInput {
-    listing: ID!
-    user: ID!
-    text: String!
-  }
-
-  input TransactionInput {
-    reservation: ID!
-    totalPrice: Float!
-    paid: Boolean!
-  }
-
   type Mutation {
+  login(email: String!, password: String!): Auth
     createUser(input: UserInput!): User
     updateUser(id: ID!, input: UserInput!): User
     deleteUser(id: ID!): User
     createListing(input: ListingInput!): Listing
     updateListing(id: ID!, input: ListingInput!): Listing
     deleteListing(id: ID!): Listing
-    createReservation(input: ReservationInput!): Reservation
-    updateReservation(id: ID!, input: ReservationInput!): Reservation
-    deleteReservation(id: ID!): Reservation
-    createComment(input: CommentInput!): Comment
-    updateComment(id: ID!, input: CommentInput!): Comment
-    deleteComment(id: ID!): Comment
-    createTransaction(input: TransactionInput!): Transaction
-    updateTransaction(id: ID!, input: TransactionInput!): Transaction
-    deleteTransaction(id: ID!): Transaction
   }
 `;
 
