@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { useMutation, useQuery } from "@apollo/client";
 import NewListing from "./NewListing";
 
@@ -64,11 +64,12 @@ const Portal = () => {
           </div></>
       ) : (
         <p>
-          You need to be logged in to share your thoughts. Please{' '}
-          <Link to="/LoginForm">Login</Link> or <Link to="/SignupForm">Signup.</Link>
+          You need to be logged in to access this page.
+          <a href="#LoginForm">Login</a> or <a href="#SignupForm">Signup.</a>
         </p>
-      )}
-    </div>
+      )
+      }
+    </div >
   );
 };
 

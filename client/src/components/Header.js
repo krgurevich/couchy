@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 // Import CSS
 import "../styles/Header.css";
+import { Link, useLocation } from "react-router-dom";
 
 // Import Font Awesome Icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -10,8 +11,10 @@ import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { faCouch } from "@fortawesome/fontawesome-free-solid";
 
 // Set State for Current Page and Handle Page Change
-export default function Header({ currentPage, handlePageChange }) {
+export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
+  const currentPage = location.pathname;
   return (
     // Navbar including mobile design functionality
     <>
@@ -36,54 +39,22 @@ export default function Header({ currentPage, handlePageChange }) {
           id="js-menu"
           style={{ display: isOpen && "block" }}
         >
-          <li
-            className={currentPage === "Home" ? "active" : ""}
-            onClick={() => {
-              handlePageChange("Home");
-            }}
-          >
-            Home
-          </li>
-          <li
-            className={currentPage === "Explore" ? "active" : ""}
-            onClick={() => {
-              handlePageChange("Explore");
-            }}
-          >
-            Explore
-          </li>
-          <li
-            className={currentPage === "Portal" ? "active" : ""}
-            onClick={() => {
-              handlePageChange("Portal");
-            }}
-          >
-            Portal
-          </li>
-          <li
-            className={currentPage === "Contact" ? "active" : ""}
-            onClick={() => {
-              handlePageChange("Contact");
-            }}
-          >
-            Contact
-          </li>
-          <li
-            className={currentPage === "Login" ? "active" : ""}
-            onClick={() => {
-              handlePageChange("LoginForm");
-            }}
-          >
-            Login
-          </li>
-          <li
-            className={currentPage === "Signup" ? "active" : ""}
-            onClick={() => {
-              handlePageChange("SignupForm");
-            }}
-          >
-            Signup
-          </li>
+          <Link to="/">
+            <li className={currentPage === "/" ? "active" : ""}>Home</li>
+          </Link>
+          <Link to="/explore">
+            <li className={currentPage === "explore" ? "active" : ""}>
+              Explore
+            </li>
+          </Link>
+          <Link to="/contact">
+            <li className={currentPage === "contact" ? "active" : ""}>
+              Contact
+            </li>
+          </Link>
+          <Link to="/login">
+            <li className={currentPage === "login" ? "active" : ""}>Login</li>
+          </Link>
         </ul>
       </nav>
     </>
