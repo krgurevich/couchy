@@ -34,6 +34,7 @@
 .main-nav {
   list-style-type: none;
   display: none;
+  
 }
 
 .main-nav li {
@@ -70,7 +71,9 @@
     height: 70px;
     align-items: center;
   }
-
+.links {
+  text-decoration: none;
+}
   .main-nav {
     display: flex;
     margin-right: 30px;

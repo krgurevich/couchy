@@ -5,6 +5,8 @@ import { Form, Button, Alert } from "react-bootstrap";
 import { CREATE_USER } from "../utils/mutations";
 import Auth from "../utils/auth";
 
+import { useUserContext } from "../context/UserContext";
+
 const SignupForm = () => {
   // set initial form state
   const [userFormData, setUserFormData] = useState({
@@ -12,6 +14,7 @@ const SignupForm = () => {
     email: "",
     password: "",
   });
+  const { setUser } = useUserContext();
   // set state for form validation
   const [validated] = useState(false);
   // set state for alert
@@ -36,10 +39,10 @@ const SignupForm = () => {
     console.log(userFormData);
     try {
       const { data } = await createUser({
-        variables: { ...userFormData },
+        variables: { input:userFormData },
       });
-      console.log(data);
-      Auth.login(data.createUser.token);
+    setUser(data.createUser);
+      Auth.login(data.createUser);
     } catch (err) {
       console.error(err);
       setShowAlert(true);
@@ -53,6 +56,8 @@ const SignupForm = () => {
   };
 
   return (
+    <div className="container">
+      <h3>Sign Up Form</h3>
     <div id="SignupForm">
       {/* This is needed for the validation functionality above */}
       <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
@@ -124,6 +129,7 @@ const SignupForm = () => {
           Submit
         </Button>
       </Form>
+    </div>
     </div>
   );
 };
