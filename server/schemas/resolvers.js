@@ -10,7 +10,6 @@ const { signToken } = require("../utils/auth");
 
 const resolvers = {
   Query: {
-
     // Querying me
     me: async (parent, args, context) => {
       if (context.user) {
@@ -49,7 +48,7 @@ const resolvers = {
     getListings: async () => {
       try {
         const listings = await Listing.find({}).populate("host");
-        console.log(listings)
+        console.log(listings);
         return listings;
       } catch (error) {
         throw new Error(error);
@@ -99,9 +98,10 @@ const resolvers = {
 
   Mutation: {
     // Mutation to create a new user
-    createUser: async (_, { name, email, password }) => {
+    createUser: async (_, { username, email, password }) => {
+      console.log(username);
       try {
-        const user = await User.create({ name, email, password });
+        const user = await User.create({ username, email, password });
         return user;
       } catch (error) {
         throw new Error(error);
@@ -109,11 +109,11 @@ const resolvers = {
     },
 
     // Mutation to update a user by ID
-    updateUser: async (_, { id, name, email, password }) => {
+    updateUser: async (_, { id, username, email, password }) => {
       try {
         const updatedUser = await User.findByIdAndUpdate(
           id,
-          { name, email, password },
+          { username, email, password },
           { new: true }
         );
         return updatedUser;
@@ -137,13 +137,13 @@ const resolvers = {
       const user = await User.findOne({ email });
 
       if (!user) {
-        throw new AuthenticationError('No user with this email found!');
+        throw new AuthenticationError("No user with this email found!");
       }
 
       const correctPw = await user.isCorrectPassword(password);
 
       if (!correctPw) {
-        throw new AuthenticationError('Incorrect password!');
+        throw new AuthenticationError("Incorrect password!");
       }
 
       const token = signToken(user);
