@@ -3,7 +3,7 @@ import { gql } from '@apollo/client';
 export const CREATE_USER = gql`
 mutation createUser($input:userInput!) {
 createUser(userInput:$input){
-name
+username
 email
 password
 }
@@ -16,6 +16,19 @@ name
 email
 password
 }
+}
+`;
+
+export const LOGIN_USER = gql`
+mutation login($email: String!, $password: String!) {
+  login(email: $email, password: $password) {
+    token
+    user {
+      _id
+      username
+      email
+    }
+  }
 }
 `;
 
@@ -36,6 +49,8 @@ description
 price
 location
 host
+updatedAt
+createdAt
 }}`;
 export const UPDATE_LISTING = gql` mutation updateListing($_id: ID!, $input: ListingInput){
 updateListing(input:$input){
@@ -44,6 +59,7 @@ description
 total
 price
 location
+updatedAt
 }
 }`;
 export const DELETE_LISTING = gql`mutation deleteListing($_id:ID!)
@@ -58,29 +74,31 @@ host
 }
 }`;
 
+
+
 // comment crud
-export const CREATE_COMMENT = gql`mutation createComment($input:CommentInput) {
-createComment(input:$input){
-listing
-user
-text
-}
-}`;
-export const UPDATE_COMMENT = gql` mutation updateComment($_id: ID!, $input:CommentInput){
-updateComment(_id:$_id, input:$input)
-{
-listing 
-user
-text
-}
-}
-`;
-export const DELETE_COMMENT = gql` mutation deleteComment($_id:ID!){
-deleteComment(_id:$id)
-{
-_id
-listing
-user
-text
-}
-}`;
+// export const CREATE_COMMENT = gql`mutation createComment($input:CommentInput) {
+// createComment(input:$input){
+// listing
+// user
+// text
+// }
+// }`;
+// export const UPDATE_COMMENT = gql` mutation updateComment($_id: ID!, $input:CommentInput){
+// updateComment(_id:$_id, input:$input)
+// {
+// listing 
+// user
+// text
+// }
+// }
+// `;
+// export const DELETE_COMMENT = gql` mutation deleteComment($_id:ID!){
+// deleteComment(_id:$id)
+// {
+// _id
+// listing
+// user
+// text
+// }
+// }`;

@@ -13,7 +13,8 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Explore from "./components/Explore";
 import Portal from "./components/Portal";
-import Login from "./components/Login";
+import LoginForm from "./components/LoginForm";
+import SignupForm from "./components/SignupForm";
 import Contact from "./components/Contact";
 
 
@@ -50,26 +51,29 @@ export default function App() {
     if (currentPage === "Home") {
       return <Home />;
     }
-    if (currentPage === "Explore") {
+    else if (currentPage === "Explore") {
       return <Explore />;
     }
-    if (currentPage === "Portal") {
+    else if (currentPage === "Portal") {
       return <Portal />;
     }
-    if (currentPage === "Login") {
-      return <Login />;
+    else if (currentPage === "LoginForm") {
+      return <LoginForm />;
     }
-    return <Contact />;
+    else if (currentPage === "SignupForm") {
+      return <SignupForm />;
+    }
+    else { return <Contact />; }
   };
 
   const handlePageChange = (page) => setCurrentPage(page);
 
   return (
     <>
-       <ApolloProvider client={client}>
-      <Header currentPage={currentPage} handlePageChange={handlePageChange} />
-      {renderPage()}
-      <Footer />
+      <ApolloProvider client={client}>
+        <Header currentPage={currentPage} handlePageChange={handlePageChange} />
+        {renderPage()}
+        <Footer />
       </ ApolloProvider>
     </>
   );

@@ -48,7 +48,8 @@ const resolvers = {
     // Query to get all listings
     getListings: async () => {
       try {
-        const listings = await Listing.find({});
+        const listings = await Listing.find({}).populate("host");
+        console.log(listings)
         return listings;
       } catch (error) {
         throw new Error(error);
@@ -129,6 +130,24 @@ const resolvers = {
       } catch (error) {
         throw new Error(error);
       }
+    },
+
+    // Mutation for login
+    login: async (parent, { email, password }) => {
+      const user = await User.findOne({ email });
+
+      if (!user) {
+        throw new AuthenticationError('No user with this email found!');
+      }
+
+      const correctPw = await user.isCorrectPassword(password);
+
+      if (!correctPw) {
+        throw new AuthenticationError('Incorrect password!');
+      }
+
+      const token = signToken(user);
+      return { token, user };
     },
 
     // Mutation to create a new listing

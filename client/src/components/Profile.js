@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { useQuery } from '@apollo-client';
+import { useQuery } from '@apollo/client';
 
 import { GET_SINGLE_USER, GET_ME } from '../utils/queries';
 
