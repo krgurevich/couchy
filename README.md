@@ -20,7 +20,7 @@ Couchy is a web-based marketplace application for renting budget short term home
 - MongoDB Database
 - Node.js
 - Express.js
-- GraphQL API
+- GraphQL
 - Apollo Server
 - JWT Authentication
 
