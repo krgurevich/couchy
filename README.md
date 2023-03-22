@@ -38,10 +38,10 @@ Licensed under the terms of the MIT License
 
 ## Screenshots
 
-![website.screenshot](./client/src/assets/images/screenshot1.png)
-![website.screenshot](./client/src/assets/images/screenshot2.png)
-![website.screenshot](./client/src/assets/images/screenshot3.png)
-![website.screenshot](./client/src/assets/images/screenshot4.png)
+![website.screenshot](./client/src/images/screenshot1.png)
+![website.screenshot](./client/src/images/screenshot2.png)
+![website.screenshot](./client/src/images/screenshot3.png)
+![website.screenshot](./client/src/images/screenshot4.png)
 
 ## Contributors
 
