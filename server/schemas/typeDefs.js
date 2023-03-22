@@ -16,6 +16,7 @@ const typeDefs = gql`
 
   type Listing {
     _id: ID!
+    photos:String
     title: String!
     description: String!
     price: Float!

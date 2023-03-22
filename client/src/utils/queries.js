@@ -55,6 +55,7 @@ query getListings{
 getListings{
     _id
         title
+        photos
         description
         price
         location 
