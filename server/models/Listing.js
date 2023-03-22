@@ -20,7 +20,7 @@ const listingSchema = new Schema({
     required: true,
   },
   amenities: [String],
-  photos: [String],
+  photos: String,
   host: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",

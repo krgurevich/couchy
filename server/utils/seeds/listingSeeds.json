@@ -3,18 +3,21 @@
         "title": "Joe's Couch",
         "description": "A couch is available in my living room, food and amenities provided",
         "price": 4,
-        "location": "Nowhere, VA"
+        "location": "Nowhere, VA",
+        "photos": "https://unsplash.com/photos/ej3UoXYMaRI"
     },
     {
         "title": "Spare Attic Room",
         "description": "Got some space available in my attic. It's not the coziest, but you'll have wifi access!",
         "price": 6,
-        "location": "Boston, MA"
+        "location": "Boston, MA",
+        "photos": "https://unsplash.com/photos/Lu_jS_TM8X8"
     },
     {
         "title": "The Boat House (tm)",
         "description": "If you want a night you'll never forget, make your reservation at the Boat House",
         "price": 30,
-        "location": "Long Beach Island, NJ"
+        "location": "Long Beach Island, NJ",
+        "photos": "https://unsplash.com/photos/QbGXCQnUhes"
     }
 ]

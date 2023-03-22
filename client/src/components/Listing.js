@@ -22,10 +22,9 @@ const Listing = ({
   createdAt,
   updatedAt,
 }) => {
-  console.log(title);
+  console.log(photos);
   return (
     <div className="card">
-
       <img className="card-img-top img-fluid" src={photos} alt="Property" />
       <div className="card-body">
         <h5 className="card-title">{title}</h5>
